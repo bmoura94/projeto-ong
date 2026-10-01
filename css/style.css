@@ -319,3 +319,15 @@ input.invalido:focus {
 .btn-limpar:hover {
   background-color: #c0392b;
 }
+/* Foco visível para navegação por teclado (WCAG 2.4.7) */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid #0e7c66;
+  outline-offset: 2px;
+}
+
+/* No menu, o fundo é escuro: usa contorno claro */
+nav a:focus-visible {
+  outline-color: #ffffff;
+}
