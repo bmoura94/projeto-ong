@@ -95,6 +95,7 @@ Detalhes:
 - Só conferi o `aria-invalid` no DevTools no campo Nome.
 
 Por isso não dá pra dizer que o site está 100% na WCAG.
+Isso está registrado na issue #1 (milestone "Acessibilidade v1.1"): https://github.com/bmoura94/projeto-ong/issues/1
 
 ---
 
