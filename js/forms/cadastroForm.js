@@ -16,6 +16,7 @@ function validarCampo(campo) {
   const mensagem = validadores[campo.name](campo.value);
   document.querySelector(`#erro-${campo.id}`).textContent = mensagem;
   campo.classList.toggle("invalido", mensagem !== "");
+  campo.setAttribute("aria-invalid", mensagem !== "");
   return mensagem === "";
 }
 
