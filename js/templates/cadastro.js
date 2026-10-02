@@ -7,19 +7,19 @@ export function cadastroTemplate() {
 
           <div class="campo">
             <label for="nome">Nome completo:</label>
-            <input type="text" id="nome" name="nome" required />
+            <input type="text" id="nome" name="nome" required aria-describedby="erro-nome" />
             <span class="erro" id="erro-nome"></span>
           </div>
 
           <div class="campo">
             <label for="nascimento">Data de nascimento:</label>
-            <input type="date" id="nascimento" name="nascimento" required />
+            <input type="date" id="nascimento" name="nascimento" required aria-describedby="erro-nascimento" />
             <span class="erro" id="erro-nascimento"></span>
           </div>
 
           <div class="campo">
             <label for="cpf">CPF:</label>
-            <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" required />
+            <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" required aria-describedby="erro-cpf" />
             <span class="erro" id="erro-cpf"></span>
           </div>
         </fieldset>
@@ -29,19 +29,19 @@ export function cadastroTemplate() {
 
           <div class="campo">
             <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required />
+            <input type="email" id="email" name="email" required aria-describedby="erro-email" />
             <span class="erro" id="erro-email"></span>
           </div>
 
           <div class="campo">
             <label for="telefone">Telefone:</label>
-            <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" required />
+            <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" required aria-describedby="erro-telefone" />
             <span class="erro" id="erro-telefone"></span>
           </div>
 
           <div class="campo">
             <label for="cep">CEP:</label>
-            <input type="text" id="cep" name="cep" placeholder="00000-000" required />
+            <input type="text" id="cep" name="cep" placeholder="00000-000" required aria-describedby="erro-cep" />
             <span class="erro" id="erro-cep"></span>
           </div>
         </fieldset>
