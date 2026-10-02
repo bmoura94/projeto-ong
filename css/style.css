@@ -274,7 +274,7 @@ nav a.ativo {
 }
 /* Mensagens de erro da validação */
 .erro {
-  color: #ffffff;
+  color: #c0392b;
   font-size: 0.85rem;
   min-height: 1.1em;
 }
@@ -330,4 +330,51 @@ input:focus-visible {
 /* No menu, o fundo é escuro: usa contorno claro */
 nav a:focus-visible {
   outline-color: #ffffff;
+}
+
+/* Modo escuro: segue a preferência do sistema do usuário */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #12181b;
+    color: #e8eaed;
+  }
+
+  section {
+    background: #1e272e;
+    box-shadow: none;
+  }
+
+  section h1,
+  legend {
+    color: #e8eaed;
+  }
+
+  label {
+    color: #c8d0d6;
+  }
+
+  fieldset,
+  #lista-voluntarios li {
+    border-color: #3a4650;
+  }
+
+  input {
+    background-color: #12181b;
+    color: #e8eaed;
+    border-color: #5f6b73;
+  }
+
+  .erro {
+    color: #ff8a80;
+  }
+
+  section a {
+    color: #8ecae6;
+  }
+
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible {
+    outline-color: #1abc9c;
+  }
 }
