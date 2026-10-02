@@ -83,6 +83,7 @@ export function iniciarCadastro() {
       document.querySelector("#erro-cpf").textContent =
         "Este CPF já está cadastrado.";
       document.querySelector("#cpf").classList.add("invalido");
+      document.querySelector("#cpf").setAttribute("aria-invalid", "true");
       mostrarStatus("erro", "Não foi possível concluir o cadastro.");
       return;
     }
