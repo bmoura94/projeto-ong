@@ -307,7 +307,7 @@ input.invalido:focus {
 
 /* Botão de limpar cadastros */
 .btn-limpar {
-  background-color: #e74c3c;
+  background-color: #c0392b;
   color: white;
   border: none;
   border-radius: 4px;
@@ -317,7 +317,7 @@ input.invalido:focus {
 }
 
 .btn-limpar:hover {
-  background-color: #c0392b;
+  background-color: #a93226;
 }
 /* Foco visível para navegação por teclado (WCAG 2.4.7) */
 a:focus-visible,
