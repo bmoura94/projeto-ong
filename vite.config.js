@@ -3,6 +3,7 @@ import { resolve } from 'path'
 
 export default defineConfig({
   root: './',
+  base: '/projeto-ong/',
   build: {
     outDir: 'dist',
     minify: 'terser',
