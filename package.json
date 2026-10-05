@@ -1,0 +1,15 @@
+{
+  "name": "projeto-ong",
+  "version": "1.0.0",
+  "description": "Site de uma ONG fictícia com cadastro de voluntários",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "terser": "^5.51.2",
+    "vite": "^5.0.0"
+  }
+}
