@@ -2,7 +2,10 @@ export function homeTemplate() {
   return `
     <section class="caixa-sobre">
       <h1>Bem-vindo à nossa ONG</h1>
-<img src="../imagens/ONGFicticia.jpg" alt="Voluntários trabalhando em horta comunitária" />
+      <picture>
+        <source srcset="../imagens/ONGFicticia.webp" type="image/webp" />
+        <img src="../imagens/ONGFicticia.jpg" alt="Voluntários trabalhando em horta comunitária" />
+      </picture>
       <p class="destaque">
         Construindo um futuro sustentável através da solidariedade.
       </p>
