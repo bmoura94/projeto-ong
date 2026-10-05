@@ -10,6 +10,13 @@ if (!fs.existsSync(outputDir)) {
   fs.mkdirSync(outputDir, { recursive: true });
 }
 
+const breakpoints = [
+  { width: 480, suffix: '-sm' },
+  { width: 768, suffix: '-md' },
+  { width: 1024, suffix: '-lg' },
+  { width: null, suffix: '' }
+];
+
 async function optimizeImages() {
   const files = fs.readdirSync(inputDir);
   const imageFiles = files.filter(file =>
@@ -21,28 +28,37 @@ async function optimizeImages() {
   for (const file of imageFiles) {
     const inputPath = path.join(inputDir, file);
     const nameWithoutExt = path.parse(file).name;
-    const webpPath = path.join(outputDir, `${nameWithoutExt}.webp`);
+
+    console.log(`📸 Processando ${file}...\n`);
 
     try {
-      // Obter tamanho original
       const stats = fs.statSync(inputPath);
       const originalSize = stats.size;
 
-      // Converter para WebP
-      await sharp(inputPath)
-        .webp({ quality: 70, alphaQuality: 100 })
-        .toFile(webpPath);
+      for (const bp of breakpoints) {
+        const webpFileName = bp.width
+          ? `${nameWithoutExt}${bp.suffix}.webp`
+          : `${nameWithoutExt}.webp`;
+        const webpPath = path.join(outputDir, webpFileName);
 
-      // Obter tamanho do WebP
-      const webpStats = fs.statSync(webpPath);
-      const webpSize = webpStats.size;
+        let transformer = sharp(inputPath);
+        if (bp.width) {
+          transformer = transformer.resize(bp.width, null, { withoutEnlargement: true });
+        }
 
-      const reduction = ((originalSize - webpSize) / originalSize * 100).toFixed(2);
+        await transformer
+          .webp({ quality: 70, alphaQuality: 100 })
+          .toFile(webpPath);
 
-      console.log(`✅ ${file}`);
-      console.log(`   Original: ${(originalSize / 1024).toFixed(2)} KB`);
-      console.log(`   WebP:     ${(webpSize / 1024).toFixed(2)} KB`);
-      console.log(`   Redução:  ${reduction}%\n`);
+        const webpStats = fs.statSync(webpPath);
+        const webpSize = webpStats.size;
+        const reduction = ((originalSize - webpSize) / originalSize * 100).toFixed(2);
+
+        const sizeLabel = bp.width ? `${bp.width}px` : 'Full';
+        console.log(`   ✅ ${webpFileName}`);
+        console.log(`      Tamanho: ${(webpSize / 1024).toFixed(2)} KB`);
+        console.log(`      Redução: ${reduction}%\n`);
+      }
     } catch (error) {
       console.error(`❌ Erro ao processar ${file}:`, error.message);
     }

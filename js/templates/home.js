@@ -3,8 +3,25 @@ export function homeTemplate() {
     <section class="caixa-sobre">
       <h1>Bem-vindo à nossa ONG</h1>
       <picture>
-        <source srcset="../imagens/ONGFicticia.webp" type="image/webp" />
-        <img src="../imagens/ONGFicticia.jpg" alt="Voluntários trabalhando em horta comunitária" />
+        <source
+          media="(max-width: 480px)"
+          srcset="../imagens/ONGFicticia-sm.webp"
+          type="image/webp" />
+        <source
+          media="(max-width: 768px)"
+          srcset="../imagens/ONGFicticia-md.webp"
+          type="image/webp" />
+        <source
+          media="(max-width: 1024px)"
+          srcset="../imagens/ONGFicticia-lg.webp"
+          type="image/webp" />
+        <source
+          srcset="../imagens/ONGFicticia.webp"
+          type="image/webp" />
+        <img
+          src="../imagens/ONGFicticia.jpg"
+          alt="Voluntários trabalhando em horta comunitária"
+          loading="lazy" />
       </picture>
       <p class="destaque">
         Construindo um futuro sustentável através da solidariedade.
